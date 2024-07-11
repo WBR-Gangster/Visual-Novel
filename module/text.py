@@ -1,10 +1,16 @@
 import pygame
+import sys
+import os
+
+sys.path.insert(0, f'{os.getcwd()}')
+
+from data import screen_width, screen_height
 
 pygame.init()
 
 font_size = 30
-
 arial = pygame.font.SysFont('Arial', font_size)
+
 WHITE = (255,255,255)
 DARK_YELLOW = (239, 204, 0)
 

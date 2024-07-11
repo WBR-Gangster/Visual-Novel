@@ -1,15 +1,24 @@
 import pygame
+import os
 
-IMAGE_DIR = 'C:\\Users\\HawlerMathew\\Documents\\code\\Handmade project\\Game\\images'
+USER_FILEPATH = os.getcwd()
+
+IMAGE_DIR = f'{USER_FILEPATH}\\images'
 
 def load_image(filename):
     return pygame.image.load(f'{IMAGE_DIR}\\{filename}')
 
+# Screen Size
+screen_width = 844
+screen_height = 390
+
 # Character
-wriothesley = load_image('wriothesley.webp')
+wriothesley_name = 'Wriothesley'
+wriothesley_image = load_image('wriothesley.webp')
 
 # Background
 fontaine = load_image('fontaine.jpg')
 
 # Situtation
 fatui = load_image('fatui.jpg')
+

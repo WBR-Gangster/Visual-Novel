@@ -1,7 +1,10 @@
 import pygame
+import sys
+import os
 
-screen_width = 1200
-screen_height = 700
+sys.path.insert(0, f'{os.getcwd()}')
+
+from data import screen_width, screen_height
 
 class Background(pygame.sprite.Sprite):
 	def __init__(self, image):

@@ -1,18 +1,17 @@
 import sys
 import pygame
+import os
+from data import screen_width, screen_height, USER_FILEPATH
 
 nums_of_module = 4
 
 for i in range(nums_of_module):
-	sys.path.insert(i, 'C:\\Users\\HawlerMathew\\Documents\\code\\Handmade project\\Game\\module')
+	sys.path.insert(i, f'{USER_FILEPATH}\\module')
 
 from character import Character
 from background import Background
 from text import MessageBox
 from situation import Situation
-
-screen_width = 1200
-screen_height = 700
 
 # Gap for Characrer in MessageBox
 gapc = 20
@@ -25,7 +24,6 @@ xb = gapb
 yb = screen_height - heightb - gapb
 
 # Situation // fix scale more flexible
-siscale = 0.4
 xsi = screen_width/2
 ysi = screen_height/2
 
@@ -33,7 +31,7 @@ ysi = screen_height/2
 xc = xb
 yc = yb + heightb/2
 
-# Group
+# Sprite Group
 character_group = pygame.sprite.Group()
 text_group = pygame.sprite.Group()
 situation_group = pygame.sprite.Group()
@@ -48,7 +46,8 @@ def create_board(screen, character, character_name, character_text,background, s
 
 	# Character Scale
 	crscale = (heightb - gapc*2)/(character.get_height())
-	
+	siscale = (screen_height/1.5)/(situation.get_height())
+
 	if trigger:
 		current_character = Character(character, xc + (character.get_width()*crscale)/2 + gapc, yc, crscale)
 		current_text = MessageBox(character_name, character_text, xb, yb, widthb, heightb)
