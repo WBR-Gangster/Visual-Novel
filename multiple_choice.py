@@ -12,7 +12,7 @@ from background import Background
 from text import MessageBox
 from multiple_option import generate_choices
 
-def multiple_choice(screen, character, character_name, character_messages, text_speed, background, choices, _next):
+def multiple_choice(screen, character, character_name, character_messages, message_frame_type, text_speed, background, choices, _next):
 
 	global trigger_mc
 	global current_text
@@ -28,7 +28,7 @@ def multiple_choice(screen, character, character_name, character_messages, text_
 	# thì trigger_mc đã là False r thì khối lệnh bên dưới đâu đc chạy, mà đâu đc chạy thì không tạo sprite
 	if trigger_mc:
 		current_character = Character(character, xc + (character.get_width()*crscale)/2 + gapc, yc, crscale)
-		current_text = MessageBox(character_name, character_messages, xb, yb, widthb, heightb, text_speed)
+		current_text = MessageBox(message_frame_type, character_name, character_messages, xb, yb, widthb, heightb, text_speed)
 		current_background = Background(background)
 
 		character_group.add(current_character)

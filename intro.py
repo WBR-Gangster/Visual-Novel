@@ -9,9 +9,6 @@ def play():
 	global start_game
 	start_game.current = True
 
-def settings():
-	print('settings')
-
 def create_intro(USER_MOUSE_POS):
 
 	global trigger_intro

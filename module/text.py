@@ -1,7 +1,6 @@
 import pygame
 import sys
 import os
-import word_limits
 
 sys.path.insert(0, f'{os.getcwd()}')
 
@@ -13,14 +12,13 @@ WHITE = (255,255,255)
 DARK_YELLOW = (239, 204, 0)
 
 class MessageBox(pygame.sprite.Sprite):
-    def __init__(self, character_name, character_messages, x, y, width, height, speed):
+    def __init__(self, message_image, character_name, character_messages, x, y, width, height, speed):
         super().__init__()
         self.character_name = character_name
         self.character_messages = character_messages
         self.width = width
         self.height = height
-        self.image = pygame.Surface((width, height), pygame.SRCALPHA)
-        self.image.fill((255,165,0, 128))
+        self.image = pygame.transform.scale(message_image, (width, height))
         self.rect = self.image.get_rect()
         self.rect.topleft = [x, y]
         self.gap = int(height/20)
@@ -84,7 +82,7 @@ class MessageBox(pygame.sprite.Sprite):
 
             self.sentence_appearence = [False for i in range(len(self.sentences))]
             self.sentence_appearence[0] = True
-            # self.sentence = self.sentences[self.sentences_index]
+            
             print(self.sentence_index)
             print(self.sentence_appearence)
 
@@ -131,7 +129,6 @@ class MessageBox(pygame.sprite.Sprite):
             self.sentence_distribute = self.word_height + self.gapSentence
             self.sentence_done = False
 
-        # print(self.sentence_index[self.sentences_index], len(self.sentences[self.sentences_index]))
         if self.sentence_index[self.sentences_index] == len(self.sentences[self.sentences_index]): #
             self.sentence_done = True
 

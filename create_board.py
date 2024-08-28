@@ -15,7 +15,7 @@ from situation import generate_situations
 
 Sclick_one = True
 
-def create_board(screen, character, character_name, character_messages, text_speed, background, situation, _next): # _next would be 'end' when the story end
+def create_board(screen, character, character_name, character_messages, message_frame_type, text_speed, background, situation, _next): # _next would be 'end' when the story end
 
 	global state
 	global trigger_cb
@@ -47,7 +47,7 @@ def create_board(screen, character, character_name, character_messages, text_spe
 			current_character = Character(character, xc + (character.get_width()*crscale)/2 + gapc, yc, crscale)
 			character_group.add(current_character)
 
-		current_text = MessageBox(character_name, character_messages, xb, yb, widthb, heightb, text_speed)
+		current_text = MessageBox(message_frame_type, character_name, character_messages, xb, yb, widthb, heightb, text_speed)
 		current_background = Background(background)
 
 		text_group.add(current_text)

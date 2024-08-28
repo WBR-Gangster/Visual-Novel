@@ -11,4 +11,4 @@ class Background(pygame.sprite.Sprite):
 		super().__init__()
 		self.image = pygame.transform.scale(image, (BG_width, BG_height))
 		self.rect = self.image.get_rect()
-		self.rect.center = [BG_x, BG_y]
+		self.rect.topleft = [BG_x, BG_y]
